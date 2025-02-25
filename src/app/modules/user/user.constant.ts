@@ -1,6 +1,6 @@
 export const userSearchableFields = [
   "email",
-  "name.firstName",
-  "name.lastName",
-  "presentAddress",
+  // "name.firstName",
+  // "name.lastName",
+  // "presentAddress",
 ];
