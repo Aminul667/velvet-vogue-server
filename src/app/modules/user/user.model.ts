@@ -4,10 +4,19 @@ import { Schema, model } from "mongoose";
 import { TUser, UserModel } from "./user.interface";
 import config from "../../config";
 
-const userSchema = new Schema<TUser, UserModel>({
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
+const userSchema = new Schema<TUser, UserModel>(
+  {
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    isDeleted: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
 
 userSchema.pre("save", async function (next) {
   const user = this; // doc
